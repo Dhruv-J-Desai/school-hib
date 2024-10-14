@@ -1,9 +1,8 @@
 package com.reactivestax.students;
 
-import com.reactivestax.courses.Course;
+import com.reactivestax.enrollments.Enrollment;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.util.Set;
 
 @Entity
@@ -14,15 +13,10 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id")
     private int studentId;
 
-    @Column(name = "student_name")
     private String studentName;
 
-    @ManyToMany
-    @JoinTable(name = "student_course",
-    joinColumns = @JoinColumn(name = "student_id"),
-    inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private Set<Course> courses;
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Enrollment> enrollments;
 }

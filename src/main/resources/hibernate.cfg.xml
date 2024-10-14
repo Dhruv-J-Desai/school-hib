@@ -17,7 +17,7 @@
         <!--        <property name="hibernate.hikari.poolName">HibernateHikariCP</property>-->
 
         <!-- SQL Dialect -->
-         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
 
         <!-- Echo all executed SQL to stdout -->
         <property name="hibernate.show_sql">true</property>
@@ -28,7 +28,27 @@
         <property name="hibernate.use_sql_comments">true</property>
 
         <!-- Automatically create/update tables based on entity annotations -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Entity Classes option-1 -->
+        <mapping class="com.reactivestax.courses.Course"/>
+        <mapping class="com.reactivestax.students.Student"/>
+        <mapping class="com.reactivestax.enrollments.Enrollment"/>
+        <!--        <mapping class="io.reactivestax.entity.User" />-->
+        <!--        <mapping class="io.reactivestax.entity.UserEager" />-->
+        <!--        <mapping class="io.reactivestax.entity.Address" />-->
+        <!--        <mapping class="io.reactivestax.entity.Order" />-->
+        <!--        <mapping class="io.reactivestax.entity.OrderEager" />-->
+        <!--        <mapping class="io.reactivestax.entity.Product" />-->
+        <!--        <mapping class="io.reactivestax.entity.onetoone.jointable.Employee" />-->
+        <!--        <mapping class="io.reactivestax.entity.onetoone.jointable.WorkStation" />-->
+
+        <!-- Enable auto-detection of annotated classes (option-2)
+        <property name="hibernate.archive.autodetection">class,hbm</property> -->
+
+        <!-- Package to scan for entities
+        <mapping package="io.reactivestax.entity" />-->
+
 
     </session-factory>
 </hibernate-configuration>
